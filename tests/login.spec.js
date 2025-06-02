@@ -10,7 +10,8 @@ test.describe('Kiểm tra đăng nhập', () => {
     await page.getByRole('button', { name: 'Đăng nhập' }).click();
 
     
-    await page.waitForNavigation({ waitUntil: 'networkidle' });
+    await page.waitForLoadState('networkidle');
+
     await expect(page).toHaveURL(/metadata\.oryza\.vn/);
   });
 
