@@ -1,15 +1,16 @@
 import { chromium } from 'playwright';
+export const email = 'dangtrungkienk14@gmail.com';
+export const password = 'Kien@2025';
 
-async function loginBot() {
-  const email = 'dangtrungkienk14@gmail.com';
-  const password = 'Kien@2025';
+ export async function loginBot() {
+ 
   const loginUrl = 'https://sso.oryza.vn/realms/oryza-systems/protocol/openid-connect/auth?client_id=oryza-metadata&scope=openid%20email%20profile&response_type=code&redirect_uri=https%3A%2F%2Fmetadata.oryza.vn%2Fapi%2Fauth%2Fcallback%2Fkeycloak&state=FIgcOoLsqYx5vUQah7lSUof4EwBrRmjqh8fD1feb7uk&code_challenge=RAT7oXS6Vm05h4SW0Cz1pB5B7POcyS5lTGABbQwj0gA&code_challenge_method=S256';
 
   const startTime = Date.now();
 
   console.log('Đang mở trang đăng nhập');
   const browser = await chromium.launch({
-    headless: false
+    headless: true,
   });
 
   const page = await browser.newPage();
@@ -52,4 +53,4 @@ async function loginBot() {
 }
 
 // --- CHẠY BOT ---
-loginBot().catch(() => process.exit(1));
+//loginBot().catch(() => process.exit(1));
