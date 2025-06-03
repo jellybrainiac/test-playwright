@@ -40,4 +40,12 @@ test.describe('Kiểm tra đăng nhập', () => {
 
     await expect(page.getByText(/Invalid username or password|Không thể đăng nhập/i)).toBeVisible();
   });
+  test('Không nhập tài khoản và mật khẩu', async ({ page }) => {
+  await page.goto(loginUrl);
+  await page.getByRole('button', { name: 'Đăng nhập' }).click();
+  await expect(page.getByText(/Tên tài khoản không được bỏ trống|Mật khẩu không được bỏ trống/i)).toBeVisible();
+
+  await expect(page.getByText(/Invalid username or password|Không thể đăng nhập/i)).toBeVisible();
+});
+
 });
