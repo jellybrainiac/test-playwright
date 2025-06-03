@@ -1,7 +1,7 @@
 # Test info
 
 - Name: Kiểm tra đăng nhập >>  Sai tài khoản & đúng mật khẩu
-- Location: D:\oryza\tests\login.spec.js:18:3
+- Location: D:\oryza\tests\login.spec.js:17:3
 
 # Error details
 
@@ -15,7 +15,7 @@ Call log:
   - expect.toBeVisible with timeout 5000ms
   - waiting for getByText(/Invalid username or password|Không thể đăng nhập/i)
 
-    at D:\oryza\tests\login.spec.js:25:87
+    at D:\oryza\tests\login.spec.js:23:87
 ```
 
 # Page snapshot
@@ -46,16 +46,16 @@ Call log:
 - checkbox "Nhớ tài khoản"
 - text: Nhớ tài khoản
 - link "Quên mật khẩu?":
-  - /url: /realms/oryza-systems/login-actions/reset-credentials?client_id=oryza-metadata&tab_id=SUitLaHsls0&client_data=eyJydSI6Imh0dHBzOi8vbWV0YWRhdGEub3J5emEudm4vYXBpL2F1dGgvY2FsbGJhY2sva2V5Y2xvYWsiLCJydCI6ImNvZGUiLCJzdCI6IlNnV2JxZ25yV2Y1S0ZrNjRuNnJoX0dqaFFFYy1yMC1IdlR2WXRzZnF5MG8ifQ
+  - /url: /realms/oryza-systems/login-actions/reset-credentials?client_id=oryza-metadata&tab_id=b2NpSybGBRU&client_data=eyJydSI6Imh0dHBzOi8vbWV0YWRhdGEub3J5emEudm4vYXBpL2F1dGgvY2FsbGJhY2sva2V5Y2xvYWsiLCJydCI6ImNvZGUiLCJzdCI6ImZybFRKM1d6UWtuWExJUnFzc0VqQ3dKSTNIWUhVSWM0TU10OFF2M3AxN2sifQ
 - button "Đăng nhập" [disabled]
 - text: Bạn chưa có tài khoản?
 - link "Đăng ký":
-  - /url: /realms/oryza-systems/login-actions/registration?client_id=oryza-metadata&tab_id=SUitLaHsls0&client_data=eyJydSI6Imh0dHBzOi8vbWV0YWRhdGEub3J5emEudm4vYXBpL2F1dGgvY2FsbGJhY2sva2V5Y2xvYWsiLCJydCI6ImNvZGUiLCJzdCI6IlNnV2JxZ25yV2Y1S0ZrNjRuNnJoX0dqaFFFYy1yMC1IdlR2WXRzZnF5MG8ifQ
+  - /url: /realms/oryza-systems/login-actions/registration?client_id=oryza-metadata&tab_id=b2NpSybGBRU&client_data=eyJydSI6Imh0dHBzOi8vbWV0YWRhdGEub3J5emEudm4vYXBpL2F1dGgvY2FsbGJhY2sva2V5Y2xvYWsiLCJydCI6ImNvZGUiLCJzdCI6ImZybFRKM1d6UWtuWExJUnFzc0VqQ3dKSTNIWUhVSWM0TU10OFF2M3AxN2sifQ
 - separator: Hoặc
 - list:
   - listitem:
     - link "Tiếp tục với Google":
-      - /url: /realms/oryza-systems/broker/google/login?client_id=oryza-metadata&tab_id=SUitLaHsls0&client_data=eyJydSI6Imh0dHBzOi8vbWV0YWRhdGEub3J5emEudm4vYXBpL2F1dGgvY2FsbGJhY2sva2V5Y2xvYWsiLCJydCI6ImNvZGUiLCJzdCI6IlNnV2JxZ25yV2Y1S0ZrNjRuNnJoX0dqaFFFYy1yMC1IdlR2WXRzZnF5MG8ifQ&session_code=pS4-hWLASJYW1fXkVtPGEpUQGO3GXoKKkb-78py8dhY
+      - /url: /realms/oryza-systems/broker/google/login?client_id=oryza-metadata&tab_id=b2NpSybGBRU&client_data=eyJydSI6Imh0dHBzOi8vbWV0YWRhdGEub3J5emEudm4vYXBpL2F1dGgvY2FsbGJhY2sva2V5Y2xvYWsiLCJydCI6ImNvZGUiLCJzdCI6ImZybFRKM1d6UWtuWExJUnFzc0VqQ3dKSTNIWUhVSWM0TU10OFF2M3AxN2sifQ&session_code=vWbNHMDfCIFqtwcESBxynrxgJRygdXZUUmjOWYHn3io
 - text: © 2025 Bản quyền thuộc Oryza JSC. Bảo lưu mọi quyền.
 ```
 
@@ -63,50 +63,56 @@ Call log:
 
 ```ts
    1 | import { test, expect } from '@playwright/test';
-   2 |
-   3 | const loginUrl = 'https://sso.oryza.vn/realms/oryza-systems/protocol/openid-connect/auth?client_id=oryza-metadata&scope=openid%20email%20profile&response_type=code&redirect_uri=https%3A%2F%2Fmetadata.oryza.vn%2Fapi%2Fauth%2Fcallback%2Fkeycloak&state=abc&code_challenge=xyz&code_challenge_method=S256';
-   4 |
-   5 | test.describe('Kiểm tra đăng nhập', () => {
-   6 |   test(' Đúng tài khoản & đúng mật khẩu', async ({ page }) => {
-   7 |     await page.goto(loginUrl);
-   8 |     await page.getByRole('textbox', { name: 'Tên tài khoản' }).fill('dangtrungkienk14@gmail.com');
-   9 |     await page.getByRole('textbox', { name: 'Mật khẩu' }).fill('Kien@2025');
-  10 |     await page.getByRole('button', { name: 'Đăng nhập' }).click();
-  11 |
-  12 |     
-  13 |     await page.waitForLoadState('networkidle');
-  14 |
-  15 |     await expect(page).toHaveURL(/metadata\.oryza\.vn/);
-  16 |   });
-  17 |
-  18 |   test(' Sai tài khoản & đúng mật khẩu', async ({ page }) => {
-  19 |     await page.goto(loginUrl);
-  20 |     await page.getByRole('textbox', { name: 'Tên tài khoản' }).fill('saiuser@gmail.com');
-  21 |     await page.getByRole('textbox', { name: 'Mật khẩu' }).fill('Kien@2025');
-  22 |     await page.getByRole('button', { name: 'Đăng nhập' }).click();
-  23 |
-  24 |
-> 25 |     await expect(page.getByText(/Invalid username or password|Không thể đăng nhập/i)).toBeVisible();
+   2 | import { email, password } from '../botlogin.js'; // Lấy tài khoản và mật khẩu từ botlogin.js
+   3 |
+   4 | const loginUrl = 'https://sso.oryza.vn/realms/oryza-systems/protocol/openid-connect/auth?client_id=oryza-metadata&scope=openid%20email%20profile&response_type=code&redirect_uri=https%3A%2F%2Fmetadata.oryza.vn%2Fapi%2Fauth%2Fcallback%2Fkeycloak&state=abc&code_challenge=xyz&code_challenge_method=S256';
+   5 |
+   6 | test.describe('Kiểm tra đăng nhập', () => {
+   7 |   test(' Đúng tài khoản & đúng mật khẩu', async ({ page }) => {
+   8 |     await page.goto(loginUrl);
+   9 |     await page.getByRole('textbox', { name: 'Tên tài khoản' }).fill(email);
+  10 |     await page.getByRole('textbox', { name: 'Mật khẩu' }).fill(password);
+  11 |     await page.getByRole('button', { name: 'Đăng nhập' }).click();
+  12 |
+  13 |     await page.waitForNavigation({ waitUntil: 'networkidle' });
+  14 |     await expect(page).toHaveURL(/metadata\.oryza\.vn/);
+  15 |   });
+  16 |
+  17 |   test(' Sai tài khoản & đúng mật khẩu', async ({ page }) => {
+  18 |     await page.goto(loginUrl);
+  19 |     await page.getByRole('textbox', { name: 'Tên tài khoản' }).fill('saiuser@gmail.com');
+  20 |     await page.getByRole('textbox', { name: 'Mật khẩu' }).fill(password);
+  21 |     await page.getByRole('button', { name: 'Đăng nhập' }).click();
+  22 |
+> 23 |     await expect(page.getByText(/Invalid username or password|Không thể đăng nhập/i)).toBeVisible();
      |                                                                                       ^ Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
-  26 |   });
-  27 |
-  28 |   test('Đúng tài khoản & sai mật khẩu', async ({ page }) => {
-  29 |     await page.goto(loginUrl);
-  30 |     await page.getByRole('textbox', { name: 'Tên tài khoản' }).fill('dangtrungkienk14@gmail.com');
-  31 |     await page.getByRole('textbox', { name: 'Mật khẩu' }).fill('SaiPass@2025');
-  32 |     await page.getByRole('button', { name: 'Đăng nhập' }).click();
-  33 |
-  34 |     await expect(page.getByText(/Invalid username or password|Không thể đăng nhập/i)).toBeVisible();
-  35 |   });
-  36 |
-  37 |   test(' Sai tài khoản & sai mật khẩu', async ({ page }) => {
-  38 |     await page.goto(loginUrl);
-  39 |     await page.getByRole('textbox', { name: 'Tên tài khoản' }).fill('saiuser@gmail.com');
-  40 |     await page.getByRole('textbox', { name: 'Mật khẩu' }).fill('saiPassword123');
-  41 |     await page.getByRole('button', { name: 'Đăng nhập' }).click();
-  42 |
-  43 |     await expect(page.getByText(/Invalid username or password|Không thể đăng nhập/i)).toBeVisible();
-  44 |   });
-  45 | });
-  46 |
+  24 |   });
+  25 |
+  26 |   test(' Đúng tài khoản & sai mật khẩu', async ({ page }) => {
+  27 |     await page.goto(loginUrl);
+  28 |     await page.getByRole('textbox', { name: 'Tên tài khoản' }).fill(email);
+  29 |     await page.getByRole('textbox', { name: 'Mật khẩu' }).fill('SaiPass@2025');
+  30 |     await page.getByRole('button', { name: 'Đăng nhập' }).click();
+  31 |
+  32 |     await expect(page.getByText(/Invalid username or password|Không thể đăng nhập/i)).toBeVisible();
+  33 |   });
+  34 |
+  35 |   test(' Sai tài khoản & sai mật khẩu', async ({ page }) => {
+  36 |     await page.goto(loginUrl);
+  37 |     await page.getByRole('textbox', { name: 'Tên tài khoản' }).fill('saiuser@gmail.com');
+  38 |     await page.getByRole('textbox', { name: 'Mật khẩu' }).fill('saiPassword123');
+  39 |     await page.getByRole('button', { name: 'Đăng nhập' }).click();
+  40 |
+  41 |     await expect(page.getByText(/Invalid username or password|Không thể đăng nhập/i)).toBeVisible();
+  42 |   });
+  43 |   test('Không nhập tài khoản và mật khẩu', async ({ page }) => {
+  44 |   await page.goto(loginUrl);
+  45 |   await page.getByRole('button', { name: 'Đăng nhập' }).click();
+  46 |   await expect(page.getByText(/Tên tài khoản không được bỏ trống|Mật khẩu không được bỏ trống/i)).toBeVisible();
+  47 |
+  48 |   await expect(page.getByText(/Invalid username or password|Không thể đăng nhập/i)).toBeVisible();
+  49 | });
+  50 |
+  51 | });
+  52 |
 ```

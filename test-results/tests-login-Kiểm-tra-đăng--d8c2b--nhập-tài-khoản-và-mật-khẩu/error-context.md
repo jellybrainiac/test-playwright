@@ -1,21 +1,30 @@
 # Test info
 
-- Name: Kiểm tra đăng nhập >>  Sai tài khoản & sai mật khẩu
-- Location: D:\oryza\tests\login.spec.js:35:3
+- Name: Kiểm tra đăng nhập >> Không nhập tài khoản và mật khẩu
+- Location: D:\oryza\tests\login.spec.js:43:3
 
 # Error details
 
 ```
-Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
-
-Locator: getByText(/Invalid username or password|Không thể đăng nhập/i)
-Expected: visible
-Received: <element(s) not found>
+Error: locator.click: Test timeout of 30000ms exceeded.
 Call log:
-  - expect.toBeVisible with timeout 5000ms
-  - waiting for getByText(/Invalid username or password|Không thể đăng nhập/i)
+  - waiting for getByRole('button', { name: 'Đăng nhập' })
+    - locator resolved to <button disabled name="login" tabindex="-1" type="submit" id="kc-login" class="MuiButtonBase-root MuiButton-root MuiButton-containerBtn MuiButton-containerBtnWarning MuiButton-sizeMedium MuiButton-containerBtnSizeMedium MuiButton-colorWarning Mui-disabled MuiButton-root MuiButton-containerBtn MuiButton-containerBtnWarning MuiButton-sizeMedium MuiButton-containerBtnSizeMedium MuiButton-colorWarning css-1flweqy">…</button>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is not enabled
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is not enabled
+    - retrying click action
+      - waiting 100ms
+    52 × waiting for element to be visible, enabled and stable
+       - element is not enabled
+     - retrying click action
+       - waiting 500ms
 
-    at D:\oryza\tests\login.spec.js:41:87
+    at D:\oryza\tests\login.spec.js:45:57
 ```
 
 # Page snapshot
@@ -37,25 +46,23 @@ Call log:
   - radio "Số điện thoại"
   - text: Số điện thoại
 - text: Tên tài khoản
-- textbox "Tên tài khoản": saiuser@gmail.com
-- paragraph: Tài khoản hoặc mật khẩu không chính xác
+- textbox "Tên tài khoản"
 - text: Mật khẩu
 - textbox "Mật khẩu"
 - button "toggle password visibility"
-- paragraph: Tài khoản hoặc mật khẩu không chính xác
 - checkbox "Nhớ tài khoản"
 - text: Nhớ tài khoản
 - link "Quên mật khẩu?":
-  - /url: /realms/oryza-systems/login-actions/reset-credentials?client_id=oryza-metadata&tab_id=92QTuRMETz0&client_data=eyJydSI6Imh0dHBzOi8vbWV0YWRhdGEub3J5emEudm4vYXBpL2F1dGgvY2FsbGJhY2sva2V5Y2xvYWsiLCJydCI6ImNvZGUiLCJzdCI6IkVBcU95ak5sVnFDdXpiT1BZR1dtTGdfSGZkbHdnUFhONDUwODMwQ0tkcUkifQ
+  - /url: /realms/oryza-systems/login-actions/reset-credentials?client_id=oryza-metadata&tab_id=s2LutK8VrCE&client_data=eyJydSI6Imh0dHBzOi8vbWV0YWRhdGEub3J5emEudm4vYXBpL2F1dGgvY2FsbGJhY2sva2V5Y2xvYWsiLCJydCI6ImNvZGUiLCJzdCI6Ik9iTTJHVzJFaW9YQi1EOTNQdXJwZFFLN2M1OVgyNU9mTlNmU2ZyNWN1eEkifQ
 - button "Đăng nhập" [disabled]
 - text: Bạn chưa có tài khoản?
 - link "Đăng ký":
-  - /url: /realms/oryza-systems/login-actions/registration?client_id=oryza-metadata&tab_id=92QTuRMETz0&client_data=eyJydSI6Imh0dHBzOi8vbWV0YWRhdGEub3J5emEudm4vYXBpL2F1dGgvY2FsbGJhY2sva2V5Y2xvYWsiLCJydCI6ImNvZGUiLCJzdCI6IkVBcU95ak5sVnFDdXpiT1BZR1dtTGdfSGZkbHdnUFhONDUwODMwQ0tkcUkifQ
+  - /url: /realms/oryza-systems/login-actions/registration?client_id=oryza-metadata&tab_id=s2LutK8VrCE&client_data=eyJydSI6Imh0dHBzOi8vbWV0YWRhdGEub3J5emEudm4vYXBpL2F1dGgvY2FsbGJhY2sva2V5Y2xvYWsiLCJydCI6ImNvZGUiLCJzdCI6Ik9iTTJHVzJFaW9YQi1EOTNQdXJwZFFLN2M1OVgyNU9mTlNmU2ZyNWN1eEkifQ
 - separator: Hoặc
 - list:
   - listitem:
     - link "Tiếp tục với Google":
-      - /url: /realms/oryza-systems/broker/google/login?client_id=oryza-metadata&tab_id=92QTuRMETz0&client_data=eyJydSI6Imh0dHBzOi8vbWV0YWRhdGEub3J5emEudm4vYXBpL2F1dGgvY2FsbGJhY2sva2V5Y2xvYWsiLCJydCI6ImNvZGUiLCJzdCI6IkVBcU95ak5sVnFDdXpiT1BZR1dtTGdfSGZkbHdnUFhONDUwODMwQ0tkcUkifQ&session_code=p8PJ5uGhxT7hrS9aGQ3qdHKKRaLjILVJgaJsq32OHjY
+      - /url: /realms/oryza-systems/broker/google/login?client_id=oryza-metadata&tab_id=s2LutK8VrCE&client_data=eyJydSI6Imh0dHBzOi8vbWV0YWRhdGEub3J5emEudm4vYXBpL2F1dGgvY2FsbGJhY2sva2V5Y2xvYWsiLCJydCI6ImNvZGUiLCJzdCI6Ik9iTTJHVzJFaW9YQi1EOTNQdXJwZFFLN2M1OVgyNU9mTlNmU2ZyNWN1eEkifQ&session_code=_c5GfNQmun58FoHqGirmMfgZkowN7AFuSNG2EHQJbJc
 - text: © 2025 Bản quyền thuộc Oryza JSC. Bảo lưu mọi quyền.
 ```
 
@@ -102,12 +109,12 @@ Call log:
   38 |     await page.getByRole('textbox', { name: 'Mật khẩu' }).fill('saiPassword123');
   39 |     await page.getByRole('button', { name: 'Đăng nhập' }).click();
   40 |
-> 41 |     await expect(page.getByText(/Invalid username or password|Không thể đăng nhập/i)).toBeVisible();
-     |                                                                                       ^ Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+  41 |     await expect(page.getByText(/Invalid username or password|Không thể đăng nhập/i)).toBeVisible();
   42 |   });
   43 |   test('Không nhập tài khoản và mật khẩu', async ({ page }) => {
   44 |   await page.goto(loginUrl);
-  45 |   await page.getByRole('button', { name: 'Đăng nhập' }).click();
+> 45 |   await page.getByRole('button', { name: 'Đăng nhập' }).click();
+     |                                                         ^ Error: locator.click: Test timeout of 30000ms exceeded.
   46 |   await expect(page.getByText(/Tên tài khoản không được bỏ trống|Mật khẩu không được bỏ trống/i)).toBeVisible();
   47 |
   48 |   await expect(page.getByText(/Invalid username or password|Không thể đăng nhập/i)).toBeVisible();
