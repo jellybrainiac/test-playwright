@@ -27,24 +27,24 @@ export const password = 'Kien@2025';
   console.log(' Đã nhập tên tài khoản.');
   
 
-  console.log(' Đang nhập mật khẩu');
+  console.log(' Đang nhập mật khẩu .......');
   await page.getByRole('textbox', { name: 'Mật khẩu' }).fill(password);
   console.log(' Đã nhập mật khẩu.');
   await page.screenshot({ path: '3_password_filled.png' });
  
 
-  console.log(' Đang bấm nút "Đăng nhập"');
+  // console.log(' Đang bấm nút "Đăng nhập"');
   await page.getByRole('button', { name: 'Đăng nhập' }).click();
   console.log(' Đã bấm nút "Đăng nhập".');
  // await page.screenshot({ path: '4_clicked_login.png' });
   
 
-  console.log('Đang chờ kết quả');
+  // console.log('Đang chờ kết quả');
   await page.waitForTimeout(5000);
   await page.screenshot({ path: '5_after_login.png' });
 
   await browser.close();
-  console.log('Bot hoàn thành và đã đóng trình duyệt.');
+  // console.log('Bot hoàn thành và đã đóng trình duyệt.');
   const endTime = Date.now();
   const elapsedSeconds = ((endTime - startTime) / 1000).toFixed(2);
 
