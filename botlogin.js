@@ -10,7 +10,7 @@ export const password = 'Kien@2025';
 
   console.log('Đang mở trang đăng nhập');
   const browser = await chromium.launch({
-    headless: true,
+    headless: false,
   });
 
   const page = await browser.newPage();
@@ -53,4 +53,4 @@ export const password = 'Kien@2025';
 }
 
 // --- CHẠY BOT ---
-//loginBot().catch(() => process.exit(1));
+// loginBot().catch(() => process.exit(1));
